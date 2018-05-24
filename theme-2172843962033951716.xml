@@ -528,44 +528,7 @@ margin-left: 32px;
 }
 ]]>
     </b:template-skin>
-<script type='text/javascript'>
-  var includeLabelHelper=(function(){
-    function includeLabel(labelName){
-				var underscoreIndex=labelName.indexOf(&quot;_&quot;);
-                return underscoreIndex!==0;
-			}
-function addLabelIfIncluded(name,isSpan,parentId,dir,href,showFrequencyNumbers,numLabels){
-var parent=document.getElementById(parentId);
-                if(includeLabel(name)){
-                  var labelElement;
-                  if(isSpan){
-                     labelElement=document.createElement(&quot;span&quot;);
-                  }else{
-                     labelElement=document.createElement(&quot;a&quot;);
-                     labelElement.href=href;
-                  }
-                  labelElement.dir=dir;
-                  labelElement.innerHTML=name;
-				  
-				  parent.appendChild(labelElement);
-                  if(showFrequencyNumbers){
-					var labelCount=document.createElement(&quot;span&quot;);
-					labelCount.className=&quot;label-count&quot;;
-					labelCount.dir=dir;
-					labelCount.innerHTML=&quot; ( &quot; + numLabels + &quot; )&quot;;
-                    parent.appendChild(labelCount);
-                  }
-                }else{
-                  parent.style.display=&quot;none&quot;;
-                }
-  }
-    return {
-      includeLabel:includeLabel,
-      addLabelIfIncluded:addLabelIfIncluded
-    };
-  })();
-//should wrap into a single function to not leak
-
+<script type='text/javascript'>var includeLabelHelper=function(){function e(e){return 0!==e.indexOf(&quot;_&quot;)}return{includeLabel:e,addLabelIfIncluded:function(n,a,d,l,t,r,c){var i,u=document.getElementById(d);if(e(n)){if(a?i=document.createElement(&quot;span&quot;):(i=document.createElement(&quot;a&quot;)).href=t,i.dir=l,i.innerHTML=n,u.appendChild(i),r){var m=document.createElement(&quot;span&quot;);m.className=&quot;label-count&quot;,m.dir=l,m.innerHTML=&quot; ( &quot;+c+&quot; )&quot;,u.appendChild(m)}}else u.style.display=&quot;none&quot;}}}();
 </script>
 <b:defaultmarkups>
     <b:defaultmarkup type='Label'>
